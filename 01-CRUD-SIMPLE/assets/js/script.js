@@ -22,14 +22,49 @@ function validateFullName() {
 
     return isValidate;
 }
-
+let selectedRow=null;
+//submit  the records
 function submitHandler(event) {
     event.preventDefault();
+  
     if (validateFullName()) { 
-        alert("Validated");
-    } else {
-        alert("Not validated");
-    }
+        let formData=readFormData()
+
+        if(selectedRow===null){
+            insertedRecord(formData)
+        }
+        else{
+            updatedRecord(formData)
+        }
+    } 
+}
+
+// Insert new record into the table
+function insertedRecord(newUser) {
+    let tbody = employeeList.getElementsByTagName("tbody")[0]; // Correct reference to 'employeeList'
+
+    // Insert a new row at the end of the tbody
+    let newRow = tbody.insertRow();
+
+    // Insert actual values into each cell of the new row
+    newRow.insertCell(0).innerHTML = "fullName";
+    newRow.insertCell(1).innerHTML = "empCode";
+    newRow.insertCell(2).innerHTML = "salary";
+    newRow.insertCell(3).innerHTML = "city";
+
+    // Add Edit and Delete buttons in the last column
+    newRow.insertCell(4).innerHTML = `
+        <button type='button' onclick='editUser(this)'>Edit</button>
+        <button type='button' onclick='deleteUser(this)'>Delete</button>
+    `;
+}
+
+//Edit User
+function editUser(element){
+    // console.log(element)
+    selectedRow=element.parentElement.parentElement
+    // console.log(selectedRow);
+    
 }
 //read the data from the form field
 function readFormData(){ 

@@ -50,6 +50,7 @@ button:first-child{
 }
 button:last-child{
     background-color: red;
+ float: right;
 }
 .list{
     cursor: pointer;
