@@ -11,36 +11,31 @@
         <table>
             <tr>
                 <td>
-
-                    <form autocomplete="off">
+                    <form autocomplete="off" onsubmit="submitHandler(event)">
                         <div>
-                            <label for="">FullName*</label>
-                            <span id="fullNameValidationError" class="validation-error hide">This  field is required.</span>
+                            <label for="fullName">Full Name*</label>
+                            <span id="fullNameValidationError" class="validation-error hide">This field is required.</span>
                             <input type="text" name="fullName" id="fullName">
-
                         </div>
                         <div>
-                            <label for="">EMP Code</label>
+                            <label for="empCode">EMP Code</label>
                             <input type="text" name="empCode" id="empCode">
                         </div>
                         <div>
-                            <label for="">Salary</label>
+                            <label for="salary">Salary</label>
                             <input type="text" name="salary" id="salary">
-
                         </div>
                         <div>
-                            <label for="">City</label>
+                            <label for="city">City</label>
                             <input type="text" name="city" id="city">
-
                         </div>
                         <div>
-                            <input type="button" value="submit">
-
+                            <input type="submit" value="Submit">
                         </div>
                     </form>
                 </td>
                 <td>
-                    <table id="employeeList" id="list">
+                    <table id="employeeList" class="list">
                         <thead>
                             <tr>
                                 <th>Full Name</th>
@@ -51,16 +46,13 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <!-- employee data will be inserted here -->
+                            <!-- Employee data will be inserted here -->
                         </tbody>
                     </table>
-                   
                 </td>
             </tr>
         </table>
     </section>
-    <script src="assets/js/script.js">
-
-    </script>
+    <script src="assets/js/script.js"></script>
 </body>
 </html>

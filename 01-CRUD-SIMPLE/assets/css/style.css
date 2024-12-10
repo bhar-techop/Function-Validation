@@ -51,3 +51,6 @@ button:first-child{
 button:last-child{
     background-color: red;
 }
+.list{
+    cursor: pointer;
+}
