@@ -34,7 +34,7 @@ function submitHandler(event) {
             insertedRecord(formData)
         }
         else{
-            updatedRecord(formData)
+            updateRecord(formData)
         }
     } 
 }
@@ -47,10 +47,10 @@ function insertedRecord(newUser) {
     let newRow = tbody.insertRow();
 
     // Insert actual values into each cell of the new row
-    newRow.insertCell(0).innerHTML = "fullName";
-    newRow.insertCell(1).innerHTML = "empCode";
-    newRow.insertCell(2).innerHTML = "salary";
-    newRow.insertCell(3).innerHTML = "city";
+    newRow.insertCell(0).innerHTML = newUser.fullName;
+    newRow.insertCell(1).innerHTML = newUser.empCode;
+    newRow.insertCell(2).innerHTML = newUser.salary;
+    newRow.insertCell(3).innerHTML = newUser.city;
 
     // Add Edit and Delete buttons in the last column
     newRow.insertCell(4).innerHTML = `
@@ -70,6 +70,7 @@ function editUser(element){
     //console.log(selectedRow);
     
 }
+
 //read the data from the form field
 function readFormData(){ 
     // key:value=>property
@@ -80,9 +81,29 @@ function readFormData(){
     formData.city=city.value
 
     //we want to clear the form it contains previous data
-    formData.fullName=""
-    formData.empCode=""
-    formData.salary=""
-    formData.city=""
+    fullName.value = '';
+    empCode.value = '';
+    salary.value = '';
+    city.value = '';
     return formData
+}
+//update record
+function updateRecord(updateUser){
+    selectedRow.cells[0].innerHTML=updateUser.fullName;
+    selectedRow.cells[1].innerHTML=updateUser.empCode;
+    selectedRow.cells[2].innerHTML=updateUser.salary;
+    selectedRow.cells[3].innerHTML=updateUser.city;
+
+}
+//delete user
+function deleteUser(element){
+    if(confirm("Are you sure you want to delete this record?")){
+        let row=element.parentElement.parentElement
+        table.deleteRow(row.rowIndex);
+        
+
+    }
+    else{
+        alert("Delete operation failed")
+    }
 }
