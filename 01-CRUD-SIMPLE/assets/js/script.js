@@ -3,7 +3,7 @@ let empCode = document.getElementById('empCode');
 let salary = document.getElementById('salary');
 let city = document.getElementById('city');
 let span = document.getElementById('fullNameValidationError');
-let employeeList = document.getElementById('employeeList');
+let table = document.getElementById('employeeList');
 
 function validateFullName() {
     let isValidate = true;
@@ -41,7 +41,7 @@ function submitHandler(event) {
 
 // Insert new record into the table
 function insertedRecord(newUser) {
-    let tbody = employeeList.getElementsByTagName("tbody")[0]; // Correct reference to 'employeeList'
+    let tbody = table.getElementsByTagName("tbody")[0]; 
 
     // Insert a new row at the end of the tbody
     let newRow = tbody.insertRow();
@@ -61,9 +61,13 @@ function insertedRecord(newUser) {
 
 //Edit User
 function editUser(element){
-    // console.log(element)
-    selectedRow=element.parentElement.parentElement
-    // console.log(selectedRow);
+    //console.log(element)
+    selectedRow=element.parentElement.parentElement;
+    fullName.value = selectedRow.cells[0].innerHTML;
+    empCode.value = selectedRow.cells[1].innerHTML;
+    salary.value = selectedRow.cells[2].innerHTML;
+    city.value = selectedRow.cells[3].innerHTML;
+    //console.log(selectedRow);
     
 }
 //read the data from the form field
